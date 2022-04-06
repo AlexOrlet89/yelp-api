@@ -4,7 +4,7 @@ require('dotenv').config({ path: `.env.development.local` });
 const handler = async (event) => {
   // const zip = event.queryStringParameters.zip;
   // const category = event.queryStringParameters.category;
-  const { zip, category } = event.queryStringParameters;
+  const { zip, search } = event.queryStringParameters;
   console.log('this is the zip', zip);
 
   try {
