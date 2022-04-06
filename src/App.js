@@ -11,9 +11,10 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchBusinesses();
-      setBusinesses(data);
+      const resp = await fetch(`/.netlify/functions/yelp?zip=93117&category=restaurants`);
+      const data = await resp.json();
       setLoading(false);
+      console.log(data);
     };
     fetchData();
   }, []);
