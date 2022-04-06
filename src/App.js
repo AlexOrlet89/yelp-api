@@ -16,14 +16,12 @@ function App() {
       const resp = await fetchBusinesses();
       setBusinesses(resp.businesses);
       setLoading(false);
-      console.log(resp.businesses);
       //setBusiness(resp.businesses)
     };
     fetchData();
   }, []);
 
   const handleClick = async () => {
-    console.log('search button');
     const data = await fetchBusinesses(zip, search);
     return setBusinesses(data.businesses);
   };

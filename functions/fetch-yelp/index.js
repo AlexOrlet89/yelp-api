@@ -5,7 +5,6 @@ const handler = async (event) => {
   // const zip = event.queryStringParameters.zip;
   // const category = event.queryStringParameters.category;
   const { zip, search } = event.queryStringParameters;
-  console.log('this is the zip', zip);
 
   try {
     const response = await fetch(`https://api.yelp.com/v3/businesses/search?location=${zip}`, {
@@ -21,7 +20,6 @@ const handler = async (event) => {
       body: json,
     };
   } catch (error) {
-    console.log(error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed fetching data' }),
