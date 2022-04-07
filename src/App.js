@@ -22,8 +22,12 @@ function App() {
   }, []);
 
   const handleClick = async () => {
-    const data = await fetchBusinesses(zip, search);
-    return setBusinesses(data.businesses);
+    if (zip.length === 5) {
+      const data = await fetchBusinesses(zip, search);
+      return setBusinesses(data.businesses);
+    } else {
+      window.alert('zip must be 5 digits long');
+    }
   };
   // TODO -- add event for button click to handle calling fetchBusinesses with zip / search
 
